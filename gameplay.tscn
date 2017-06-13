@@ -1,0 +1,183 @@
+[gd_scene load_steps=11 format=1]
+
+[ext_resource path="res://Scripts/level_controls.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/screen_shake.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/crosshair.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/bottom_ui.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/pause_menu_ui.scn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/gameover_ui.scn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/gamewin_ui.scn" type="PackedScene" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[node name="Game" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+anchor_mode = 0
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+script/script = ExtResource( 2 )
+
+[node name="Walls" type="StaticBody2D" parent="." groups=[ "walls" ]]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 321.066, 30 )
+transform/scale = Vector2( 9.90526, 1 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 3
+collision/mask = 3
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="Walls"]
+
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Walls1" type="StaticBody2D" parent="." groups=[ "walls" ]]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 321.066, 450 )
+transform/scale = Vector2( 9.90526, 1 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 3
+collision/mask = 3
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="Walls1"]
+
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls1"]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Walls2" type="StaticBody2D" parent="." groups=[ "walls" ]]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 32.9206, 239.899 )
+transform/scale = Vector2( 0.900721, 5.48824 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 3
+collision/mask = 3
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="Walls2"]
+
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls2"]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Walls3" type="StaticBody2D" parent="." groups=[ "walls" ]]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 612.921, 239.899 )
+transform/scale = Vector2( 0.900721, 5.48824 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 3
+collision/mask = 3
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="Walls3"]
+
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls3"]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 316.968, 406.204 )
+
+[node name="Crosshair" parent="." instance=ExtResource( 5 )]
+
+[node name="BottomUI" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 320, 462 )
+
+[node name="PauseMenuPopup" parent="." instance=ExtResource( 7 )]
+
+visibility/visible = false
+margin/left = -640.0
+margin/top = -480.0
+margin/right = -128.0
+margin/bottom = -352.0
+
+[node name="GameOverMenu" parent="." instance=ExtResource( 8 )]
+
+margin/left = -640.0
+margin/top = -480.0
+margin/right = -272.0
+margin/bottom = -352.0
+
+[node name="GameWinMenu" parent="." instance=ExtResource( 9 )]
+
+visibility/visible = false
+margin/left = -640.0
+margin/top = -480.0
+margin/right = -272.0
+margin/bottom = -352.0
+
+

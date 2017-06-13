@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Scripts/energy_meter.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/energy_icon.png" type="Texture" id=2]
+
+[node name="EnergyMeter" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+visibility/visible = false
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 0, 0, 8, 6 )
+
+

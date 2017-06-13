@@ -1,0 +1,173 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://Sprites/concept_art_screen02.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/top_ui.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/blackhole.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/enemy_orb.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/enemy.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = { "points":Vector2Array( 0, 0, 0, 0, -226.439, -114.972, 0, 0, 0, 0, -118.197, -114.942, 0, 0, 0, 0, -226.497, -114.942 ) }
+
+[sub_resource type="Curve2D" id=2]
+
+bake_interval = 5.0
+_data = { "points":Vector2Array( 0, 0, 0, 0, -226.439, -114.972, 0, 0, 0, 0, -118.197, -114.942, 0, 0, 0, 0, -226.497, -114.942 ) }
+
+[node name="Level2" type="Node2D"]
+
+transform/pos = Vector2( 320, 240 )
+
+[node name="LevelSprite" type="Sprite" parent="."]
+
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+
+[node name="TopUI" parent="." instance=ExtResource( 2 )]
+
+margin/left = -306.0
+margin/top = -240.0
+margin/right = 323.0
+margin/bottom = -194.0
+
+[node name="LevelLabel" parent="TopUI"]
+
+text = "LEVEL 2"
+
+[node name="BlackHole" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 4, 20 )
+
+[node name="BlackHole1" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -76, 20 )
+
+[node name="BlackHole2" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 84, 20 )
+
+[node name="EnemyOrb" parent="." instance=ExtResource( 4 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 0, -160 )
+
+[node name="Sprite2" parent="EnemyOrb"]
+
+visibility/visible = false
+
+[node name="EnemyOrb5" parent="." instance=ExtResource( 4 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 0, -104 )
+
+[node name="Sprite1" parent="EnemyOrb5"]
+
+visibility/visible = false
+
+[node name="EnemyOrb3" parent="." instance=ExtResource( 4 )]
+
+editor/display_folded = true
+transform/pos = Vector2( -16, -132 )
+
+[node name="Sprite2" parent="EnemyOrb3"]
+
+visibility/visible = false
+
+[node name="EnemyOrb4" parent="." instance=ExtResource( 4 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 16, -132 )
+
+[node name="Sprite2" parent="EnemyOrb4"]
+
+visibility/visible = false
+
+[node name="EnemyOrb1" parent="." instance=ExtResource( 4 )]
+
+editor/display_folded = true
+transform/pos = Vector2( -32, -160 )
+
+[node name="Sprite1" parent="EnemyOrb1"]
+
+visibility/visible = false
+
+[node name="EnemyOrb2" parent="." instance=ExtResource( 4 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 32, -160 )
+
+[node name="Sprite1" parent="EnemyOrb2"]
+
+visibility/visible = false
+
+[node name="Path1" type="Path2D" parent="."]
+
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path1"]
+
+transform/pos = Vector2( -226.439, -114.972 )
+transform/rot = -0.0158462
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = false
+loop = true
+lookahead = 4.0
+
+[node name="Enemy" parent="Path1/PathFollow2D" instance=ExtResource( 5 )]
+
+[node name="Path2" type="Path2D" parent="."]
+
+transform/scale = Vector2( -1, 1 )
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2"]
+
+transform/pos = Vector2( -126.462, -114.944 )
+transform/rot = -0.0158462
+offset = 100.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = false
+loop = true
+lookahead = 4.0
+
+[node name="Enemy" parent="Path2/PathFollow2D" instance=ExtResource( 5 )]
+
+[connection signal="body_enter" from="EnemyOrb/Area2D" to="EnemyOrb/Area2D" method="_on_Area2D_body_enter"]
+
+[connection signal="body_exit" from="EnemyOrb/Area2D" to="EnemyOrb/Area2D" method="_on_Area2D_body_exit"]
+
+[connection signal="body_enter" from="EnemyOrb5/Area2D" to="EnemyOrb5/Area2D" method="_on_Area2D_body_enter"]
+
+[connection signal="body_exit" from="EnemyOrb5/Area2D" to="EnemyOrb5/Area2D" method="_on_Area2D_body_exit"]
+
+[connection signal="body_enter" from="EnemyOrb3/Area2D" to="EnemyOrb3/Area2D" method="_on_Area2D_body_enter"]
+
+[connection signal="body_exit" from="EnemyOrb3/Area2D" to="EnemyOrb3/Area2D" method="_on_Area2D_body_exit"]
+
+[connection signal="body_enter" from="EnemyOrb4/Area2D" to="EnemyOrb4/Area2D" method="_on_Area2D_body_enter"]
+
+[connection signal="body_exit" from="EnemyOrb4/Area2D" to="EnemyOrb4/Area2D" method="_on_Area2D_body_exit"]
+
+[connection signal="body_enter" from="EnemyOrb1/Area2D" to="EnemyOrb1/Area2D" method="_on_Area2D_body_enter"]
+
+[connection signal="body_exit" from="EnemyOrb1/Area2D" to="EnemyOrb1/Area2D" method="_on_Area2D_body_exit"]
+
+[connection signal="body_enter" from="EnemyOrb2/Area2D" to="EnemyOrb2/Area2D" method="_on_Area2D_body_enter"]
+
+[connection signal="body_exit" from="EnemyOrb2/Area2D" to="EnemyOrb2/Area2D" method="_on_Area2D_body_exit"]
+
+
+[editable path="TopUI"]
+[editable path="EnemyOrb"]
+[editable path="EnemyOrb5"]
+[editable path="EnemyOrb3"]
+[editable path="EnemyOrb4"]
+[editable path="EnemyOrb1"]
+[editable path="EnemyOrb2"]

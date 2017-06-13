@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://font_theme.thm" type="Theme" id=1]
+[ext_resource path="res://Scripts/top_ui_controls.gd" type="Script" id=2]
+
+[node name="TopUI" type="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 629.0
+margin/bottom = 46.0
+script/script = ExtResource( 2 )
+
+[node name="Indicator" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 312.0
+margin/bottom = 46.0
+custom_colors/font_color = Color( 1, 0.333333, 1, 1 )
+text = "6 ORBS LEFT"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="LevelLabel" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 424.0
+margin/top = 0.0
+margin/right = 629.0
+margin/bottom = 46.0
+text = "LEVEL 1"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+
