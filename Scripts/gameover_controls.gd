@@ -26,6 +26,7 @@ func _on_Button_pressed():
 	if(musicHandler.is_playing()):
 		musicHandler.stop()
 
+	get_node("/root/globals").resetLevel()
 	get_tree().change_scene("res://Scenes/main_menu.tscn")
 	hide()
 	find_node("Button").set_disabled(true)

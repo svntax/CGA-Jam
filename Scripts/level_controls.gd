@@ -3,6 +3,7 @@ extends Node2D
 
 var level1 = load("res://Scenes/level_1.tscn")
 var level2 = load("res://Scenes/level_2.tscn")
+var level3 = load("res://Scenes/level_3.tscn")
 
 var enemiesLeft
 var currentLevel
@@ -18,6 +19,10 @@ func _ready():
 		var newLevel = level2.instance()
 		add_child(newLevel)
 		move_child(newLevel, 5)
+	elif(currentLevel == 3):
+		var newLevel = level3.instance()
+		add_child(newLevel)
+		move_child(newLevel, 5)
 	set_process(true)
 
 func _process(delta):
@@ -30,6 +35,9 @@ func nextLevel():
 		get_node("/root/globals").setCurrentLevel(2)
 		get_tree().reload_current_scene()
 	elif(currentLevel == 2):
+		get_node("/root/globals").setCurrentLevel(3)
+		get_tree().reload_current_scene()
+	elif(currentLevel == 3):
 		#print("You won!")
 		get_node("/root/globals").setCurrentLevel(1)
 		#Prevent orbs from making sounds

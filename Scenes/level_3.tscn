@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://Sprites/level_bg.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/top_ui.tscn" type="PackedScene" id=2]
@@ -9,14 +9,19 @@
 [sub_resource type="Curve2D" id=1]
 
 bake_interval = 5.0
-_data = { "points":Vector2Array( 0, 0, 0, 0, -226.439, -114.972, 0, 0, 0, 0, -118.197, -114.942, 0, 0, 0, 0, -226.497, -114.942 ) }
+_data = { "points":Vector2Array( 0, 0, 0, 0, -170.03, -90.4942, 0, 0, 0, 0, -55.0295, -90.4942, 0, 0, 0, 0, -170.018, -90.5325 ) }
 
 [sub_resource type="Curve2D" id=2]
 
 bake_interval = 5.0
-_data = { "points":Vector2Array( 0, 0, 0, 0, -226.439, -114.972, 0, 0, 0, 0, -118.197, -114.942, 0, 0, 0, 0, -226.497, -114.942 ) }
+_data = { "points":Vector2Array( 0, 0, 0, 0, -170.03, -90.4942, 0, 0, 0, 0, -55.0295, -90.4942, 0, 0, 0, 0, -170.018, -90.5325 ) }
 
-[node name="Level2" type="Node2D"]
+[sub_resource type="Curve2D" id=3]
+
+bake_interval = 5.0
+_data = { "points":Vector2Array( 0, 0, 0, 0, -69.0578, -48.1753, 0, 0, 0, 0, 69.1395, -48.1753, 0, 0, 0, 0, -69.0578, -48.1753 ) }
+
+[node name="Level3" type="Node2D"]
 
 transform/pos = Vector2( 320, 240 )
 
@@ -27,6 +32,7 @@ texture = ExtResource( 1 )
 
 [node name="TopUI" parent="." instance=ExtResource( 2 )]
 
+editor/display_folded = true
 margin/left = -306.0
 margin/top = -240.0
 margin/right = 323.0
@@ -34,26 +40,43 @@ margin/bottom = -194.0
 
 [node name="LevelLabel" parent="TopUI"]
 
-text = "LEVEL 2"
+text = "LEVEL 3"
 
 [node name="BlackHole" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( -1, 20 )
+transform/pos = Vector2( -233, -40 )
 
-[node name="BlackHole1" parent="." instance=ExtResource( 3 )]
+[node name="BlackHole2 2" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( -81, 20 )
+transform/pos = Vector2( -213, 10 )
 
-[node name="BlackHole2" parent="." instance=ExtResource( 3 )]
+[node name="BlackHole3" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 79, 20 )
+transform/pos = Vector2( 233, -40 )
+
+[node name="BlackHole4" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 223, 10 )
+
+[node name="BlackHole5" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 0, 10 )
 
 [node name="EnemyOrb" parent="." instance=ExtResource( 4 )]
 
 editor/display_folded = true
-transform/pos = Vector2( 0, -153 )
+transform/pos = Vector2( -230, -121 )
 
 [node name="Sprite2" parent="EnemyOrb"]
+
+visibility/visible = false
+
+[node name="EnemyOrb6 3" parent="." instance=ExtResource( 4 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 230, -121 )
+
+[node name="Sprite2" parent="EnemyOrb6 3"]
 
 visibility/visible = false
 
@@ -87,20 +110,30 @@ visibility/visible = false
 [node name="EnemyOrb1" parent="." instance=ExtResource( 4 )]
 
 editor/display_folded = true
-transform/pos = Vector2( -32, -153 )
+transform/pos = Vector2( -246, -149 )
 
 [node name="Sprite1" parent="EnemyOrb1"]
 
 visibility/visible = false
 
+[node name="EnemyOrb6" parent="." instance=ExtResource( 4 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 214, -149 )
+
 [node name="EnemyOrb2" parent="." instance=ExtResource( 4 )]
 
 editor/display_folded = true
-transform/pos = Vector2( 32, -153 )
+transform/pos = Vector2( -214, -149 )
 
 [node name="Sprite1" parent="EnemyOrb2"]
 
 visibility/visible = false
+
+[node name="EnemyOrb6 2" parent="." instance=ExtResource( 4 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 246, -149 )
 
 [node name="Path1" type="Path2D" parent="."]
 
@@ -108,8 +141,7 @@ curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path1"]
 
-transform/pos = Vector2( -226.439, -114.972 )
-transform/rot = -0.0158462
+transform/pos = Vector2( -170.03, -90.4942 )
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
@@ -127,8 +159,7 @@ curve = SubResource( 2 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2"]
 
-transform/pos = Vector2( -226.439, -114.972 )
-transform/rot = -0.0158462
+transform/pos = Vector2( -170.03, -90.4942 )
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
@@ -139,9 +170,31 @@ lookahead = 4.0
 
 [node name="Enemy" parent="Path2/PathFollow2D" instance=ExtResource( 5 )]
 
+[node name="Path3" type="Path2D" parent="."]
+
+curve = SubResource( 3 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path3"]
+
+transform/pos = Vector2( 0.880939, -48.1753 )
+transform/rot = 0.000109682
+offset = 70.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = false
+loop = true
+lookahead = 4.0
+
+[node name="Enemy" parent="Path3/PathFollow2D" instance=ExtResource( 5 )]
+
 [connection signal="body_enter" from="EnemyOrb/Area2D" to="EnemyOrb/Area2D" method="_on_Area2D_body_enter"]
 
 [connection signal="body_exit" from="EnemyOrb/Area2D" to="EnemyOrb/Area2D" method="_on_Area2D_body_exit"]
+
+[connection signal="body_enter" from="EnemyOrb6 3/Area2D" to="EnemyOrb6 3/Area2D" method="_on_Area2D_body_enter"]
+
+[connection signal="body_exit" from="EnemyOrb6 3/Area2D" to="EnemyOrb6 3/Area2D" method="_on_Area2D_body_exit"]
 
 [connection signal="body_enter" from="EnemyOrb5/Area2D" to="EnemyOrb5/Area2D" method="_on_Area2D_body_enter"]
 
@@ -166,6 +219,7 @@ lookahead = 4.0
 
 [editable path="TopUI"]
 [editable path="EnemyOrb"]
+[editable path="EnemyOrb6 3"]
 [editable path="EnemyOrb5"]
 [editable path="EnemyOrb3"]
 [editable path="EnemyOrb4"]

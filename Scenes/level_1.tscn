@@ -38,7 +38,7 @@ transform/pos = Vector2( 200, 0 )
 
 [node name="BlackHole1" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( -200, 0 )
+transform/pos = Vector2( -204, 0 )
 
 [node name="EnemyOrb" parent="." instance=ExtResource( 4 )]
 

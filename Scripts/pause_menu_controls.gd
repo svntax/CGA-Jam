@@ -40,7 +40,8 @@ func _on_YesButton_pressed():
 	var musicHandler = get_node("/root/music_handler")
 	if(musicHandler.is_playing()):
 		musicHandler.stop()
-	
+
+	get_node("/root/globals").resetLevel()
 	get_tree().change_scene("res://Scenes/main_menu.tscn")
 	hide()
 	disableButtons()
