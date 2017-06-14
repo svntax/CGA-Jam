@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=1]
 
-[ext_resource path="res://Sprites/concept_art_screen02.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/level_bg.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/top_ui.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/blackhole.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/enemy_orb.tscn" type="PackedScene" id=4]
@@ -51,7 +51,7 @@ transform/pos = Vector2( 84, 20 )
 [node name="EnemyOrb" parent="." instance=ExtResource( 4 )]
 
 editor/display_folded = true
-transform/pos = Vector2( 0, -160 )
+transform/pos = Vector2( 0, -153 )
 
 [node name="Sprite2" parent="EnemyOrb"]
 
@@ -60,7 +60,7 @@ visibility/visible = false
 [node name="EnemyOrb5" parent="." instance=ExtResource( 4 )]
 
 editor/display_folded = true
-transform/pos = Vector2( 0, -104 )
+transform/pos = Vector2( 0, -97 )
 
 [node name="Sprite1" parent="EnemyOrb5"]
 
@@ -69,7 +69,7 @@ visibility/visible = false
 [node name="EnemyOrb3" parent="." instance=ExtResource( 4 )]
 
 editor/display_folded = true
-transform/pos = Vector2( -16, -132 )
+transform/pos = Vector2( -16, -125 )
 
 [node name="Sprite2" parent="EnemyOrb3"]
 
@@ -78,7 +78,7 @@ visibility/visible = false
 [node name="EnemyOrb4" parent="." instance=ExtResource( 4 )]
 
 editor/display_folded = true
-transform/pos = Vector2( 16, -132 )
+transform/pos = Vector2( 16, -125 )
 
 [node name="Sprite2" parent="EnemyOrb4"]
 
@@ -87,7 +87,7 @@ visibility/visible = false
 [node name="EnemyOrb1" parent="." instance=ExtResource( 4 )]
 
 editor/display_folded = true
-transform/pos = Vector2( -32, -160 )
+transform/pos = Vector2( -32, -153 )
 
 [node name="Sprite1" parent="EnemyOrb1"]
 
@@ -96,7 +96,7 @@ visibility/visible = false
 [node name="EnemyOrb2" parent="." instance=ExtResource( 4 )]
 
 editor/display_folded = true
-transform/pos = Vector2( 32, -160 )
+transform/pos = Vector2( 32, -153 )
 
 [node name="Sprite1" parent="EnemyOrb2"]
 
@@ -127,9 +127,9 @@ curve = SubResource( 2 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2"]
 
-transform/pos = Vector2( -126.462, -114.944 )
+transform/pos = Vector2( -226.439, -114.972 )
 transform/rot = -0.0158462
-offset = 100.0
+offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
 rotate = false

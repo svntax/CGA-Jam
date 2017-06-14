@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=1]
 
-[ext_resource path="res://Sprites/concept_art_screen02.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/level_bg.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/top_ui.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/blackhole.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/enemy_orb.tscn" type="PackedScene" id=4]
