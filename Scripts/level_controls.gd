@@ -30,7 +30,7 @@ func nextLevel():
 		get_node("/root/globals").setCurrentLevel(2)
 		get_tree().reload_current_scene()
 	elif(currentLevel == 2):
-		print("You won!")
+		#print("You won!")
 		get_node("/root/globals").setCurrentLevel(1)
 		#Prevent orbs from making sounds
 		for normalOrb in get_tree().get_nodes_in_group("normalOrbs"):
